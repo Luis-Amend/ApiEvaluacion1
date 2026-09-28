@@ -257,3 +257,4 @@ C:\Users\LENOVO\OneDrive\Desktop\ApiActividad\ApiActividad\obj\Debug\net8.0\refi
 C:\Users\LENOVO\OneDrive\Desktop\ApiActividad\ApiActividad\obj\Debug\net8.0\ApiActividad.pdb
 C:\Users\LENOVO\OneDrive\Desktop\ApiActividad\ApiActividad\obj\Debug\net8.0\ApiActividad.genruntimeconfig.cache
 C:\Users\LENOVO\OneDrive\Desktop\ApiActividad\ApiActividad\obj\Debug\net8.0\ref\ApiActividad.dll
+C:\Users\LENOVO\OneDrive\Desktop\ApiActividad\ApiActividad\obj\Debug\net8.0\ApiActividad.sourcelink.json
