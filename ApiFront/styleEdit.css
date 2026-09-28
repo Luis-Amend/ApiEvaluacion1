@@ -37,14 +37,47 @@ img {
     text-decoration: none;
     padding: 10px;
     border-radius: 20px;
+    border-color: transparent;
 }
 
 .btn:hover {
     background-color: rgb(173, 6, 6);
     color: rgb(255, 255, 255);
     transition: all 0.3s ease;
+    border-color: transparent;
 }
 
+/* esto es para la tabla*/
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
+
+thead th {
+  background-color: #c62828; /* rojo intenso */
+  color: #fff;
+  padding: 12px;
+  text-align: left;
+  font-weight: bold;
+}
+
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1; 
+}
+
+td {
+  padding: 10px;
+  text-align: left;
+}
 
 /* esto hay que revisarlo despues*/
 .modalCasero {
@@ -60,7 +93,7 @@ img {
 }
 
 /* Cuando tiene la clase "abierto", se muestra */
-.modal-fondo.abierto {
+.modalCasero.abierto {
     display: flex;
 }
 

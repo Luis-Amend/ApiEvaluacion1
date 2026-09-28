@@ -14,6 +14,7 @@
         <div class="BarraSuperior">
             <h1>Gestión de Productos</h1>
             <a href="/ApiFront/Views/index.html" class="btn">Volver al inicio</a>
+            <button class="btn" onclick="abrirModalCrear()">Cargar un auto</button>
         </div>
     </section>
     <div>
@@ -23,13 +24,14 @@
 
                 <thead class="tableDark">
                     <tr>
-                        <th>ID</th>
                         <th>Modelo</th>
                         <th>Marca</th>
                         <th>Kilometraje</th>
                         <th>Año</th>
                         <th>Patente</th>
                         <th>Precio Venta</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
 
@@ -41,11 +43,49 @@
         </div>
     </div>
 
-    <div id="editarVehiculo" class="modalCasero">
+    <div id="editarAuto" class="modalCasero">
         <div class="modal-caja">
             <h2>Editar auto</h2>
 
             <input type="hidden" id="AutoID">
+
+            <label>Marca</label>
+            <input type="text" id="MarcaEditar">
+
+            <label>Modelo</label>
+            <input type="text" id="ModeloEditar">
+
+            <label>Año</label>
+            <input type="number" id="AnioEditar">
+
+            <label>Patente</label>
+            <input type="text" id="PatenteEditar">
+
+            <label>Kilometraje</label>
+            <input type="number" id="KilometrajeEditar">
+
+            <label>Fecha de ingreso</label>
+            <input type="date" id="FechaIngresoEditar">
+
+            <label>Precio</label>
+            <input type="number" id="PrecioEditar">
+
+            <label>Estado</label>
+            <select id="EstadoEditar">
+                <option value="true">Disponible</option>
+                <option value="false">No disponible</option>
+            </select>
+
+            <div class="modalBotones">
+                <button onclick="GuardarAuto()">Guardar</button>
+                <button onclick="cerrarModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="crearAuto" class="modalCasero">
+        <div class="modal-caja">
+            <h2>Editar auto</h2>
 
             <label>Marca</label>
             <input type="text" id="MarcaEditar">
@@ -62,8 +102,8 @@
             <label>Kilometraje</label>
             <input type="number" id="KilometrajeEditar">
 
-            <label>Fecha de ingreso</label>
-            <input type="date" id="FechaIngresoEditar">
+            <label>Precio</label>
+            <input type="number" id="PrecioEditar">
 
             <label>Estado</label>
             <select id="EstadoEditar">
@@ -72,8 +112,8 @@
             </select>
 
             <div class="modalBotones">
-                <button onclick="GuardarAuto()">Guardar</button>
-                <button onclick="cerrarModal()">Cancelar</button>
+                <button onclick="CrearAuto()">Guardar</button>
+                <button onclick="cerrarModalCrear()">Cancelar</button>
             </div>
         </div>
     </div>
