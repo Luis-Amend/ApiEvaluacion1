@@ -1,0 +1,86 @@
+function BuscarValoreProducto(id) {
+  fetch(`http://localhost:5050/api/Producto/${id}`)
+    .then((respuesta) => {
+      if (!respuesta.ok) {
+        throw new Error(`Error HTTP: ${respuesta.status}`);
+      }
+      return respuesta.json();
+    })
+    .then((data) => {
+      console.log("Producto:", data);
+
+      document.getElementById("idEditar").value = data.productoID;
+      document.getElementById("nombreEditar").value = data.nombre;
+      document.getElementById("descripcionEditar").value = data.descripcion;
+      document.getElementById("precioCostoEditar").value = data.precioCosto;
+      document.getElementById("precioVentaEditar").value = data.precioVenta;
+
+      let modal = new bootstrap.Modal(document.getElementById("modalEditar"));
+
+      modal.show();
+    })
+    .catch((error) => {
+      console.error("No se pudo acceder a la API:", error);
+    });
+}
+
+function EditarProducto() {
+  let id = document.getElementById("idEditar").value;
+  console.log("id", id);
+
+  let editarProducto = {
+    productoID: parseInt(id),
+    nombre: document.getElementById("nombreEditar").value.trim(),
+    descripcion: document.getElementById("descripcionEditar").value.trim(),
+    precioCosto: parseFloat(document.getElementById("precioCostoEditar").value.trim()),
+    precioVenta: parseFloat(document.getElementById("precioVentaEditar").value.trim()),
+  };
+
+  if ((editarProducto.nombre == "") || (editarProducto.descripcion == ""))
+  {
+    return alert("El nombre y la descripcion del producto son obligatorios");
+  }
+  if ((editarProducto.precioCosto == "") || (editarProducto.precioCosto <= 0))
+  {
+    return alert("El precio de costo del producto es obligatorio y debe ser mayor a 0");
+  }
+  if ((editarProducto.precioVenta == "") || (editarProducto.precioVenta <= 0))
+  {
+    return alert("El precio de venta del producto es obligatorio y debe ser mayor a 0");
+  }
+  if (editarProducto.precioCosto > editarProducto.precioVenta)
+  {
+    return alert("El precio de venta debe ser mayor al precio de costo");
+  }
+
+  fetch(`http://localhost:5050/api/Producto/${id}`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(editarProducto),
+  })
+    .then(() => {
+
+      document.getElementById("idEditar").value = 0;
+      document.getElementById("nombreEditar").value = "";
+      document.getElementById("descripcionEditar").value = "";
+      document.getElementById("precioCostoEditar").value = "";
+      document.getElementById("precioVentaEditar").value = "";
+
+      let modal = bootstrap.Modal.getOrCreateInstance(
+          document.getElementById("modalEditar"),
+      );
+
+      modal.hide();
+      ObtenerProductos();
+    })
+    .catch((error) => console.error("no se pudo editar la categoria", error));
+    
+}
+
+
+
+
+ObtenerProductos();
