@@ -84,3 +84,15 @@ function EditarProducto() {
 
 
 ObtenerProductos();
+
+
+
+// otra cosa
+
+document.getElementById("MarcaCrear").value = "";
+document.getElementById("MarcaCrear").value = "";
+document.getElementById("AnioCrear").value = "";
+document.getElementById("PatenteCrear").value = "";
+document.getElementById("FechaIngreso").value = "";
+document.getElementById("KilometrajeCrear").value = "";
+document.getElementById("EstadoCrear").value = "";

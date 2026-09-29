@@ -17,6 +17,40 @@
             <button class="btn" onclick="abrirModalCrear()">Cargar un auto</button>
         </div>
     </section>
+
+    <div id="crearAuto" class="modalCasero">
+        <div class="modal-caja">
+            <h2>Editar auto</h2>
+
+            <label>Marca</label>
+            <input type="text" id="Marca">
+
+            <label>Modelo</label>
+            <input type="text" id="Modelo">
+
+            <label>Año</label>
+            <input type="number" id="Anio">
+
+            <label>Patente</label>
+            <input type="text" id="Patente">
+
+            <label>Kilometraje</label>
+            <input type="number" id="Kilometraje">
+
+            <label>Fecha de ingreso</label>
+            <input type="date" id="FechaIngreso">
+
+            <label>Precio</label>
+            <input type="number" id="Precio">
+
+            <div class="modalBotones">
+                <button class="btn" onclick="CrearAuto()">Guardar</button>
+                <button class="btn" onclick="cerrarModalCrear()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+
     <div>
         <div class="tablaDatos">
 
@@ -43,83 +77,65 @@
         </div>
     </div>
 
-    <div id="editarAuto" class="modalCasero">
-        <div class="modal-caja">
-            <h2>Editar auto</h2>
+<div class="modal fade" tabindex="-1" id="editarAuto">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header editar_modal">
+                        <h5 class="modal-title" id="editarVehiculoLabel"> Editar Vehículo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" hidden id="VehiculoID">
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label class="form-label">Marca</label>
+                                <input type="text" class="form-control" id="MarcaEditar">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Modelo</label>
+                                <input type="text" class="form-control" id="ModeloEditar">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Año</label>
+                                <input type="number" class="form-control" id="AñoEditar">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Patente</label>
+                                <input type="text" class="form-control" id="PatenteEditar">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Kilometraje</label>
+                                <input type="number" class="form-control" id="KilometrajeEditar">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Fecha de Ingreso</label>
+                                <input type="date" class="form-control" id="FechaIngresoEditar">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Estado</label>
+                                <select class="form-select" id="EstadoEditar">
+                                    <option value="true">Disponible</option>
+                                    <option value="false">No Disponible</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- seccion de botones del modal de editar los datos de los vehiculos -->
+                    <div class="modal-footer">
 
-            <input type="hidden" id="AutoID">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Cancelar
+                        </button>
 
-            <label>Marca</label>
-            <input type="text" id="MarcaEditar">
-
-            <label>Modelo</label>
-            <input type="text" id="ModeloEditar">
-
-            <label>Año</label>
-            <input type="number" id="AnioEditar">
-
-            <label>Patente</label>
-            <input type="text" id="PatenteEditar">
-
-            <label>Kilometraje</label>
-            <input type="number" id="KilometrajeEditar">
-
-            <label>Fecha de ingreso</label>
-            <input type="date" id="FechaIngresoEditar">
-
-            <label>Precio</label>
-            <input type="number" id="PrecioEditar">
-
-            <label>Estado</label>
-            <select id="EstadoEditar">
-                <option value="true">Disponible</option>
-                <option value="false">No disponible</option>
-            </select>
-
-            <div class="modalBotones">
-                <button onclick="GuardarAuto()">Guardar</button>
-                <button onclick="cerrarModal()">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="EditarVehiculo()">
+                            Guardar cambios
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id="crearAuto" class="modalCasero">
-        <div class="modal-caja">
-            <h2>Editar auto</h2>
 
-            <label>Marca</label>
-            <input type="text" id="MarcaCrear">
-
-            <label>Modelo</label>
-            <input type="text" id="ModeloCrear">
-
-            <label>Año</label>
-            <input type="number" id="AnioCrear">
-
-            <label>Patente</label>
-            <input type="text" id="PatenteCrear">
-
-            <label>Kilometraje</label>
-            <input type="number" id="KilometrajeCrear">
-
-            <label>Fecha de ingreso</label>
-            <input type="date" id="FechaIngresoCrear">
-
-            <label>Precio</label>
-            <input type="number" id="PrecioCrear">
-
-            <label>Estado</label>
-            <select id="EstadoCrear">
-                <option value="true">Disponible</option>
-                <option value="false">No disponible</option>
-            </select>
-
-            <div class="modalBotones">
-                <button class="btn" onclick="CrearAuto()">Guardar</button>
-                <button class="btn" onclick="cerrarModalCrear()">Cancelar</button>
-            </div>
-        </div>
-    </div>
     <footer class="footer-personalizado">
         <div class="container">
             <div class="row text-center">
