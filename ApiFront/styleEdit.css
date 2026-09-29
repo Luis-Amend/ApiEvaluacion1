@@ -1,6 +1,9 @@
 body {
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-color: rgb(220, 210, 222);
 }
 
@@ -40,7 +43,23 @@ img {
     border-color: transparent;
 }
 
+.btnElim {
+    background-color: rgb(110, 106, 106);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 20px;
+    border-color: transparent;
+}
+
 .btn:hover {
+    background-color: rgb(173, 6, 6);
+    color: rgb(255, 255, 255);
+    transition: all 0.3s ease;
+    border-color: transparent;
+}
+
+.btnElim:hover {
     background-color: rgb(173, 6, 6);
     color: rgb(255, 255, 255);
     transition: all 0.3s ease;
@@ -49,34 +68,35 @@ img {
 
 /* esto es para la tabla*/
 table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #f9f9f9;
-  font-family: Arial, sans-serif;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
 }
 
 
 thead th {
-  background-color: #c62828; /* rojo intenso */
-  color: #fff;
-  padding: 12px;
-  text-align: left;
-  font-weight: bold;
+    background-color: #c62828;
+    /* rojo intenso */
+    color: #fff;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
 }
 
 
 tbody tr {
-  border-bottom: 1px solid #ddd;
-  transition: background-color 0.2s ease;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.2s ease;
 }
 
 tbody tr:hover {
-  background-color: #f1f1f1; 
+    background-color: #f1f1f1;
 }
 
 td {
-  padding: 10px;
-  text-align: left;
+    padding: 10px;
+    text-align: left;
 }
 
 /* esto hay que revisarlo despues*/
@@ -90,6 +110,7 @@ td {
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
+    font-family: Chakra Petch, sans-serif;
 }
 
 /* Cuando tiene la clase "abierto", se muestra */
@@ -109,6 +130,7 @@ td {
 .modal-caja label {
     display: block;
     margin-top: 10px;
+    border-radius: 20px;
 }
 
 .modal-caja input,
@@ -116,6 +138,7 @@ td {
     width: 100%;
     padding: 6px;
     box-sizing: border-box;
+    border-radius: 20px;
 }
 
 .modalBotones {
@@ -123,6 +146,7 @@ td {
     display: flex;
     gap: 10px;
     justify-content: flex-end;
+    padding: 10px;
 }
 
 
@@ -132,11 +156,13 @@ td {
     padding: 30px 15px;
     text-align: center;
     width: 100%;
+    box-sizing: border-box;
     margin-top: auto;
 }
 
 .footer-personalizado .container {
     max-width: 100%;
+    box-sizing: border-box;
     padding: 1px;
 }
 

@@ -88,32 +88,35 @@
             <h2>Editar auto</h2>
 
             <label>Marca</label>
-            <input type="text" id="MarcaEditar">
+            <input type="text" id="MarcaCrear">
 
             <label>Modelo</label>
-            <input type="text" id="ModeloEditar">
+            <input type="text" id="ModeloCrear">
 
             <label>Año</label>
-            <input type="number" id="AñoEditar">
+            <input type="number" id="AnioCrear">
 
             <label>Patente</label>
-            <input type="text" id="PatenteEditar">
+            <input type="text" id="PatenteCrear">
 
             <label>Kilometraje</label>
-            <input type="number" id="KilometrajeEditar">
+            <input type="number" id="KilometrajeCrear">
+
+            <label>Fecha de ingreso</label>
+            <input type="date" id="FechaIngresoCrear">
 
             <label>Precio</label>
-            <input type="number" id="PrecioEditar">
+            <input type="number" id="PrecioCrear">
 
             <label>Estado</label>
-            <select id="EstadoEditar">
+            <select id="EstadoCrear">
                 <option value="true">Disponible</option>
                 <option value="false">No disponible</option>
             </select>
 
             <div class="modalBotones">
-                <button onclick="CrearAuto()">Guardar</button>
-                <button onclick="cerrarModalCrear()">Cancelar</button>
+                <button class="btn" onclick="CrearAuto()">Guardar</button>
+                <button class="btn" onclick="cerrarModalCrear()">Cancelar</button>
             </div>
         </div>
     </div>

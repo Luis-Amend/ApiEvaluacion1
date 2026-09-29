@@ -70,7 +70,41 @@ function cerrarModalCrear() {
 
 // funciones para crear, editar y eliminar autos
 
-function CrearAuto() { }
+function CrearAuto() {
+    var nuevoAuto = {
+        modelo: document.getElementById("MarcaCrear").value.trim(),
+        marca: document.getElementById("MarcaCrear").value.trim(),
+        anio: document.getElementById("AnioCrear").value.trim(),
+        patente: document.getElementById("PatenteCrear").value.trim(),
+        fechaIngreso: document.getElementById("FechaIngresoCrear").value.trim(),
+        precio: document.getElementById("PrecioCrear").value.trim(),
+        kilometraje: document.getElementById("KilometrajeCrear").value.trim(),
+        estado: document.getElementById("EstadoCrear").value.trim(),
+    };
+
+    //validaciones falatan aca
+
+    fetch("http://localhost:5234/api/Auto", {
+        method: "POST",
+        headers: {
+            accept: "application/json",
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(nuevoAuto),
+    })
+        .then((respuesta) => respuesta.json())
+        .then((data) => {
+            document.getElementById("MarcaCrear").value = "";
+            document.getElementById("MarcaCrear").value = "";
+            document.getElementById("AnioCrear").value = "";
+            document.getElementById("PatenteCrear").value = "";
+            document.getElementById("FechaIngresoCrear").value = "";
+            document.getElementById("PrecioCrear").value = "";
+            document.getElementById("KilometrajeCrear").value = "";
+            document.getElementById("EstadoCrear").value = "";
+            ObtenerAuto();
+        })
+}
 
 function BuscarAuto(autoID) { //tira error, revisar despues
     fetch(`http://localhost:5234/api/Auto/${autoID}`)
@@ -81,7 +115,7 @@ function BuscarAuto(autoID) { //tira error, revisar despues
             return respuesta.json();
         })
         .then((data) => {
-            console.log("datos auto:", data);
+            console.log("datosAuto:", data);
 
             document.getElementById("AutoID").value = data.autoID;
             document.getElementById("ModeloEditar").value = data.Modelo;
@@ -102,7 +136,42 @@ function BuscarAuto(autoID) { //tira error, revisar despues
         });
 }
 
-function EditarAuto() { }
+function EditarAuto() {
+    let id = document.getElementById("AutoID").value;
+    let editarAuto = {
+        autoID: document.getElementById("AutoID").value.trim(),
+        modelo: document.getElementById("ModeloEditar").value.trim(),
+        marca: document.getElementById("MarcaEditar").value.trim(),
+        anio: document.getElementById("AnioEditar").value.trim(),
+        patente: document.getElementById("PatenteEditar").value.trim(),
+        fechaIngreso: document.getElementById("FechaIngresoEditar").value.trim(),
+        precio: document.getElementById("PrecioEditar").value.trim(),
+        kilometraje: document.getElementById("KilometrajeEditar").value.trim(),
+        estado: document.getElementById("EstadoEditar").value.trim(),
+    };
+    fetch("http://localhost:5234/api/Auto", {
+        method: "PUT",
+        headers: {
+            accept: "application/json",
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(editarAuto),
+    })
+    .then (() => {
+    document.getElementById("ModeloEditar").value = "";
+    document.getElementById("MarcaEditar").value = "";
+    document.getElementById("KilometrajeEditar").value = "";
+    document.getElementById("AnioEditar").value = "";
+    document.getElementById("PatenteEditar").value = "";
+    document.getElementById("PrecioEditar").value = "";
+    document.getElementById("EstadoEditar").value = "";
+    document.getElementById("FechaIngresoEditar").value = "";
+    ObtenerAuto();
+    })
+    .catch((error) => {
+        console.error("error de conexion en api", error);
+    })
+}
 
 // funciones para eliminar 
 
