@@ -36,7 +36,7 @@ function mostrarAuto(data) {
 
         editar.setAttribute(
             "onclick",
-            `BuscarAuto(${element.autoID})`,
+            `BuscarAuto(${element.autoId})`,
         );
 
         let tdEditar = tr.insertCell(6);
@@ -47,7 +47,7 @@ function mostrarAuto(data) {
         eliminar.classList.add("btnElim");
 
         eliminar.onclick = function () {
-            ValidarEliminarAuto(element.vehiculoID, element.disponible);
+            ValidarEliminarAuto(element.autoId, element.estado);
         };
 
         let tdEliminar = tr.insertCell(7);
@@ -142,9 +142,9 @@ function BuscarAuto(id) { //tira error, revisar despues
 }
 
 function EditarAuto() {
-    let id = document.getElementById("autoID").value;
+    let id = document.getElementById("AutoID").value;
     let editarAuto = {
-        autoID: document.getElementById("AutoID").value.trim(),
+        autoId: document.getElementById("AutoID").value.trim(),
         modelo: document.getElementById("ModeloEditar").value.trim(),
         marca: document.getElementById("MarcaEditar").value.trim(),
         anio: document.getElementById("AnioEditar").value.trim(),
@@ -152,9 +152,9 @@ function EditarAuto() {
         fechaIngreso: document.getElementById("FechaIngresoEditar").value.trim(),
         precio: document.getElementById("PrecioEditar").value.trim(),
         kilometraje: document.getElementById("KilometrajeEditar").value.trim(),
-        estado: document.getElementById("EstadoEditar").value.trim(),
+        estado: document.getElementById("EstadoEditar").value === "true",
     };
-    fetch("http://localhost:5234/api/Auto", {
+    fetch(`http://localhost:5234/api/auto/${id}`, {
         method: "PUT",
         headers: {
             accept: "application/json",
@@ -180,16 +180,16 @@ function EditarAuto() {
 
 // funciones para eliminar 
 
-function ValidarEliminarAuto(id, disponible) {
+function ValidarEliminarAuto(id, estado) {
     if (
-        disponible = true
+        estado == true
     ) {
         alert("este auto aun esta disponible, no puedes eliminarlo");
         return;
     }
     var siElimina = confirm("seguro quieres eliminar este auto? sera permanente")
     if (siElimina == true) {
-        EliminarAuto(autoID);
+        EliminarAuto(id);
     }
 }
 

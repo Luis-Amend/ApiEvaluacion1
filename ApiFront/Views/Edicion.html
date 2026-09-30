@@ -15,12 +15,13 @@
             <h1>Gestión de Productos</h1>
             <a href="/ApiFront/Views/index.html" class="btn">Volver al inicio</a>
             <button class="btn" onclick="abrirModalCrear()">Cargar un auto</button>
+            <button class="btn" onclick="abrirModalEditar()">edit un auto</button>
         </div>
     </section>
 
     <div id="crearAuto" class="modalCasero">
         <div class="modal-caja">
-            <h2>Editar auto</h2>
+            <h2>Crear auto</h2>
 
             <label>Marca</label>
             <input type="text" id="Marca">
@@ -77,63 +78,45 @@
         </div>
     </div>
 
-<div class="modal fade" tabindex="-1" id="editarAuto">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header editar_modal">
-                        <h5 class="modal-title" id="editarVehiculoLabel"> Editar Vehículo</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <input type="text" hidden id="VehiculoID">
-                        <div class="mb-3">
-                            <div class="mb-3">
-                                <label class="form-label">Marca</label>
-                                <input type="text" class="form-control" id="MarcaEditar">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Modelo</label>
-                                <input type="text" class="form-control" id="ModeloEditar">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Año</label>
-                                <input type="number" class="form-control" id="AñoEditar">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Patente</label>
-                                <input type="text" class="form-control" id="PatenteEditar">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Kilometraje</label>
-                                <input type="number" class="form-control" id="KilometrajeEditar">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Fecha de Ingreso</label>
-                                <input type="date" class="form-control" id="FechaIngresoEditar">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Estado</label>
-                                <select class="form-select" id="EstadoEditar">
-                                    <option value="true">Disponible</option>
-                                    <option value="false">No Disponible</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- seccion de botones del modal de editar los datos de los vehiculos -->
-                    <div class="modal-footer">
+    <div id="editarAuto" class="modalCasero">
+        <div class="modal-caja">
+            <h2>Editar auto</h2>
 
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                            Cancelar
-                        </button>
+            <input type="text" id="AutoID">
 
-                        <button type="button" class="btn btn-primary" onclick="EditarVehiculo()">
-                            Guardar cambios
-                        </button>
-                    </div>
-                </div>
+            <label>Marca</label>
+            <input type="text" id="MarcaEditar">
+
+            <label>Modelo</label>
+            <input type="text" id="ModeloEditar">
+
+            <label>Año</label>
+            <input type="number" id="AnioEditar">
+
+            <label>Patente</label>
+            <input type="text" id="PatenteEditar">
+
+            <label>Kilometraje</label>
+            <input type="number" id="KilometrajeEditar">
+
+            <label>Fecha de ingreso</label>
+            <input type="date" id="FechaIngresoEditar">
+
+            <label>Precio</label>
+            <input type="number" id="PrecioEditar">
+
+            <label>Estado</label>
+            <select id="EstadoEditar">
+                <option value="true">Disponible</option>
+                <option value="false">No disponible</option>
+            </select>
+
+            <div class="modalBotones">
+                <button onclick="EditarAuto()">Guardar</button>
+                <button onclick="cerrarModalEditar()">Cancelar</button>
             </div>
         </div>
+    </div>
 
 
     <footer class="footer-personalizado">

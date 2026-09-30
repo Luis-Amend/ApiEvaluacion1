@@ -62,6 +62,7 @@ public class AutoController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> ActualizarAuto(int id, [FromBody]Auto auto)
     {
+        
         var modeloMayuscula = auto.Modelo?.Trim().ToUpper();
         var marcaMayuscula = auto.Marca?.Trim().ToUpper();
         var patenteMayuscula = auto.Patente?.Trim().ToUpper();
